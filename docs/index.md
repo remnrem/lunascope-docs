@@ -1,3 +1,3 @@
 # Lunascope
 
-Lunascope viewer
+Lunascope viewer (v0.1.8)

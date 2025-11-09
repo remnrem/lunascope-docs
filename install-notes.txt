@@ -1,0 +1,27 @@
+
+# python ( 3.9 - 3.13) 
+
+# e.g.
+
+python3.13 -m venv myenv
+
+source myenv/bin/activate    # macOS / Linux
+
+mtenv\Scripts\activate       # Windows
+
+
+pip install lunascope
+
+
+pip install --upgrade lunascope
+
+# run
+lunascope
+
+# or
+python -m lunascope
+
+# nb. may need python3 instead of python
+
+
+

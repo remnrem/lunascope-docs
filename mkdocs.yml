@@ -1,4 +1,4 @@
 site_name: Lunascope
 nav:
   - Home: index.md
-
+  - Stuff: page1.md

@@ -1,4 +1,14 @@
-site_name: Lunascope
+site_name: Lunascope Docs
+theme:
+  name: material
 nav:
   - Home: index.md
-  - Stuff: page1.md
+  - Loading Data: loading.md
+  - Parameters: parameters.md
+  - Signals: signals.md
+  - Annotations: annotations.md
+  - Spectrograms: spectrograms.md
+  - Hypnograms: hypnograms.md
+  - Signal Viewer: signal-viewer.md
+  - HD-EEG: hd-eeg.md
+  - Luna Scripts: scripts.md

@@ -1,95 +1,68 @@
-# Lunascope
+# Lunascope Viewer v0.2.1
 
-Lunascope viewer (v0.2.1)
+Lunascope is an interactive EEG and sleep data viewer built on top of the Luna suite.
+It provides synchronized visualization of signals, annotations, and sleep staging results.
 
-## overview
+---
 
-p1b.png
+## Documentation Sections
 
+### [Overview](overview.md)
+A quick look at the Lunascope interface and main viewer layout.  
+![Overview](imgs/p1b.png)
 
-## loading data / sample lists
+---
 
-slist-dock.png
+### [Loading Data / Sample Lists](loading.md)
+Instructions for loading EDF files, annotation sets, and defining sample lists.  
+![Sample list dock](imgs/slist-dock.png)
 
+---
 
-## parameters
+### [Parameters](parameters.md)
+Details of parameter configuration and editing through the dock.  
+![Parameters](imgs/param-dock.png)
 
-param-dock.png
-param-dock2.png
+---
 
-## signals
+### [Signals](signals.md)
+Signal panels, power metrics, and POPS outputs.  
+![Signals dock](imgs/signals-dock.png)
 
-signals-dock.png
+---
 
-pops-metrics.png
+### [Annotations](annotations.md)
+Toggle annotation types, view event instances, and review detected segments.  
+![Annotations](imgs/annots-dock.png)
 
-## annotations
+---
 
-annots-dock.png
+### [Spectrograms](spectrograms.md)
+Time–frequency views and spectral summaries.  
+![Spectrograms](imgs/spectro-dock.png)
 
-instances-dock.png
+---
 
-## spectrograms
+### [Hypnograms](hypnograms.md)
+Automatic and manual staging, POPS metrics, and SOAP views.  
+![Hypnogram](imgs/hypno1.png)
 
-spectro-dock.png
-spectro-dock2.png
-spectro-dock3.png
+---
 
-spectr-winsor.png
+### [Signal Viewer](signal-viewer.md)
+Main viewer for synchronized time navigation across channels.  
+![Viewer example](imgs/luna-view-2.png)
 
-hjorth.png
+---
 
-## hypnograms
+### [HD-EEG Example](hd-eeg.md)
+Rendering of dense EEG channel sets and topographic displays.  
+![HD EEG](imgs/luna-hd-1.png)
 
-hypno1.png
+---
 
-hypno-hypno.png
+### [Luna Scripts](scripts.md)
+Examples of scripting workflows and batch analysis in Lunascope.  
+![Luna script output](imgs/luna-script.png)
 
-### SOAP
-
-soap.png
-
-
-### automated staging (POPS)
-
-pops-hypno.png
-pops-hypnodens.png
-
-## signal viewer
-
-luna-view-1.png
-luna-view-2.png
-luna-view-3.png
-luna-view-4.png
-luna-view-5.png
-luna-view-6.png
-luna-view-7.png
-luna-view-8.png
-
-## signals (hd-EEG example)
-
-luna-hd-1.png
-luna-hd-2.png
-luna-hd-3.png
-luna-hd-4.png
-luna-hd-5.png
-
-## luna scripts
-
-### simple
-
-luna-script.png
-luna-script-out.png
-luna-script-out2.png
-
-### more involved
-
-luna-script-2.png
-luna-script-2-err.png
-luna-script-2-b.png
-luna-script-2-out.png
-luna-script-2-view.png
-
-
-
-
+---

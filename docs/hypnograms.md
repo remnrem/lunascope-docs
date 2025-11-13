@@ -2,18 +2,54 @@
 
 Hypnograms summarize sleep stages across time.
 
-![Hypnogram](imgs/hypno1.png)
+If valid staging data are present as annotations, a hypnogram will be generated, both in the
+main signal view (navigation panel) but also in the hypnogram dock.
+
+Note that stages must map to `N1`, `N2`, `N3`, `R`, `W` and `?`.  If other labels have been used, you can `remap` them via a [parameter file](parameters.md).
+
 ![Detailed Hypnogram](imgs/hypno-hypno.png)
 
----
+This tab also gives some simple summary statistics: e.g. stage
+durations and WASO (minutes).  You can alter some of the options and
+recreate these hypnogram statistics, e.g. by altering lights out/on
+times and then pressing _Run HYPNO_.  See Luna documentation for more
+details.
 
-## SOAP Method
+![Hypnogram](imgs/hypno1.png)
+
+
+## Staging evalation (SOAP)
+
+As [described here](https://zzz-luna.org/luna/ref/soap/), the SOAP command evaluates signal/staging consistency.  When staging are present, select a channel and
+press _SOAP_ to generate the kappa coefficients and a SOAP-hypnodensity plot:
+
 ![SOAP Visualization](imgs/soap.png)
 
----
 
 ## Automated Staging (POPS)
+
+As [described here](https://zzz-luna.org/luna/ref/pops/), the POPS
+system performs automatic sleep staging and hypnodensity
+visualization.
+
+Select a channel to use (currently, only the single-EEG `s2` model is supported), point Lunascope to where the POPS model files have been downloaded and click _Run POPS_.  This will produce a hypnogram output of predicted stages:
+
 ![POPS Hypnogram](imgs/pops-hypno.png)
+
+You can toggle between this view and the hypnodensities by clicking the _Hypnodensity_ radio button:
+
 ![POPS Hypnodensity](imgs/pops-hypnodens.png)
 
-The POPS system performs automatic sleep staging and hypnodensity visualization.
+There is also an option to ignore any existing staging that might be
+present.  (This means that the kappa statistics, etc, are not
+computed; but also than all epochs will be included - otherwise,
+epochs marked as unknown (`?`) are excluded from automated staging.)
+
+You can see a fuller set of POPS metrics which are deposited in Luna's
+primary _Output_ dock (Ctrl-9 and Cmd-9 keyboard shortcut).  For example, here
+we see the stage specific metrics:
+
+![POPS Metrics](imgs/pops-metrics.png)
+
+POPS will save new annotations (`N1`, `N2`, etc, or if staging already exists, `pN1`, `pN2`, etc, meaning _predicted_ stage).  These annotations can be selected
+from the [Annotations table](annotations.md), used in [masks](masks.md), or other [Luna commands](scripts.md).

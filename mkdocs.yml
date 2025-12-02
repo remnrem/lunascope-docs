@@ -16,7 +16,8 @@ nav:
   - Annotations: annotations.md
   - Spectrograms: spectrograms.md
   - Hypnograms: hypnograms.md
+  - Masks: masks.md
   - Luna Scripts: scripts.md
   - Parameters: parameters.md
-  - Color maps: hd-eeg.md
-  - Known issues: known-issues.md
+  - Configuration: config.md
+  - Updates/known issues: updates.md

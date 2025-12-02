@@ -30,6 +30,13 @@ As well as using the mouse, you can use the cursor keys:
 
 Zoom and pan controls enable precise inspection of signal segments.
 
+For continuous signals (those will more than 20 discrete values), when
+zooming out, at a certain point Lunascope will show the min/max per
+"pixel-timepoint" (i.e. the interval of time that corresponds to a
+single pixel on the screen); when zooming out even further, to prevent
+saturation, Luna will show the interquartile range (25th/75th) as
+approximated by a robust estimate of the standard deviation.
+
 
 ## Rendering data
 

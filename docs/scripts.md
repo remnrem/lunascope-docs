@@ -27,8 +27,12 @@ You can transpose the table for easier viewing, as needed.
 
 ![Script Output 2](imgs/luna-script-out2.png)
 
+### Exporting tables
 
-__Note:__ future releases of Lunascope will provide support for saving tables or copying to the clip-board.
+You can select the whole table (click top left), or individual rows, columns or cells and either _Copy_ those
+data to the clipboard or save them as a TSV file, by right-clicking in the table.  The exported data will always
+contain column headers.  If a filter is currently applied, only filtered rows will be exported.
+
 
 ---
 
@@ -65,3 +69,56 @@ Selecting the two EEG channels -- and applying sigma-filtering on one of them --
 ![Script Viewer](imgs/luna-script-2-view.png)
 
 
+## Batch processing
+
+Although Lunascope is centrally designed around viewing a single
+recording, it can sometimes be convenient to apply a script to
+multiple recordings grouped as a sample-list.
+
+___Importantly, note that for non-trivial batch processing
+applications it is strongly suggested that you use command-line Luna,
+specifically designed for batch processing, not the Lunascope
+interactive viewer, for a more flexible, powerful, reproducible and
+robust pipeline.___
+
+
+A batch job in Lunascope applies the current Luna script to all
+samples in the current sample list, iteratively.  For example, consider
+we have this script, to enumate the number of NREM and REM obstructive
+apnea events, respectively:
+
+```
+TAG STG/NREM
+MASK ifnot=N1,N2,N3 
+ANNOTS annot=Obstructive_Apnea
+
+TAG STG/REM
+MASK ifnot=R 
+ANNOTS annot=Obstructive_Apnea
+```
+
+Instead of clicking the _Execute_ button (that applies the script to the current state
+of the attached EDF), use the top menu _Project / Evaluate (project)_:
+
+![Batch jobs](imgs/luna-script-batch-2.png){ width="50%" }
+
+This loads each EDF sequentially, runs the job, and saves any
+output. Only after all jobs are finished, the console will update with
+the output:
+
+![Batch jobs](imgs/luna-script-batch-1.png){ width="70%" }
+
+When finished, the viewer will have the final record in the sample
+list loaded.
+
+The outputs are collated and then displayed in a single, collated
+form. An `ID` column (based on the sample list ID) is added to each
+table to indicate to which individual those data belong:
+
+![Batch results](imgs/luna-script-batch-3.png){ width="100%" }
+
+Note that Lunascope does not parallelize jobs and will freeze the GUI
+while jobs run.  As such, it can be difficult to see the progress of
+long-running jobs.  Also, it will not automatically save all
+outputs. As noted, for these and other reasons, Lunascope is not the
+right tool for non-trivial batch jobs.

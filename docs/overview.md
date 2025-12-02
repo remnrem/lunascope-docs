@@ -6,7 +6,7 @@ Lunascope offers a modular interface composed of multiple synchronized panels ("
 
 The central signal viewer will always be present.  All other docks can
 be hidden or shown, either by the top menu, clicking the 'close' icons
-on each dock, or by key-board short-cuts.
+on each dock, by key-board short-cuts, or by a [config](config.md) file.
 
 Each dock (Parameters, Signals, Annotations, Spectrograms, Hypnograms, etc.)
 can be detached or re-positioned to match your workflow.

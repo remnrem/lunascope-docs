@@ -1,10 +1,19 @@
 # Parameters
 
-The _Parameters_ dock is used for passing [special variables](https://zzz-luna.org/luna/luna/args/#special-variables) that are applied:
+The _Parameters_ dock is used for passing [special
+variables](https://zzz-luna.org/luna/luna/args/#special-variables)
+that are applied:
 
  - when first attaching a new individual's data
 
+ - when hitting _Refresh_ (to reload the individual's data anew) 
+
  - when executing a Luna script
+
+_Parameters (Luna) versus configurations (Lunascope)_: note that the
+_Param_ tab described here passes instructions to the core Luna
+engine; in contrast, the [_Config_](config.md) tab is used to specify
+settings that are specific to the Lunascope viewer.
 
 
 ![Parameter Dock 2](imgs/param-dock2.png){ width="50%" }
@@ -25,7 +34,10 @@ i.e. in the above,
 
 ## Aliases and remapping
 
-One common use of paramter files is to rename signals (`alias`) and annotations (`remap`).  If these are defined _on loading_, then the Signals and Annotation docks will display those mapped labels, rather than the originals.
+One common use of parameter files is to rename signals (`alias`) and
+annotations (`remap`).  If these are defined _on loading_, then the
+Signals and Annotation docks will display those mapped labels, rather
+than the originals.
 
 By default Luna includes some default mappings (unless `annot-remap=F`
 and/or `nsrr-remap=F` is set).  The Parameters tab can be used to view
@@ -42,4 +54,5 @@ You can specify a parameter file when initiating Lunascope from the command line
 lunascope s.lst -p param.txt
 ```
 which will pre-populate this dock with that file.
+
 

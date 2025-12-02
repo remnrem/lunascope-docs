@@ -71,13 +71,18 @@ To open Lunascope with a particular [parameter file](https://zzz-luna.org/luna/l
 lunascope s.lst -p my-param.txt
 ```
 
+To open Lunascope with a particular [configuration file](config.md) applied, use the `-c` argument, e.g.:
+
+```
+lunascope s.lst -c hd-eeg.cfg
+```
 
 ## Updating Lunascope
 
 If new versions are available, force an upgrade with:
 
 ```
-pip install --upgrade lunapi lunascope
+pip install --upgrade lunascope
 ```
 
 

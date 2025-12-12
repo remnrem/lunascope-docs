@@ -28,6 +28,8 @@ press _SOAP_ to generate the kappa coefficients and a SOAP-hypnodensity plot:
 
 ## Automated Staging (POPS)
 
+To use POPS, first download and expand this [POPS resource .zip](http://zzz.bwh.harvard.edu/dist/luna/pops.zip). Then point the _POPS folder_ box to wherever you saved it, i.e. other than the default, which is set to `~/dropbox/pops/` (or use a [configuration file](config.md) to set the [`pops-path`](config.md#par-general-parameters) variable).
+
 As [described here](https://zzz-luna.org/luna/ref/pops/), the POPS
 system performs automatic sleep staging and hypnodensity
 visualization.
@@ -51,5 +53,12 @@ we see the stage specific metrics:
 
 ![POPS Metrics](imgs/pops-metrics.png)
 
-POPS will save new annotations (`N1`, `N2`, etc, or if staging already exists, `pN1`, `pN2`, etc, meaning _predicted_ stage).  These annotations can be selected
-from the [Annotations table](annotations.md), used in [masks](masks.md), or other [Luna commands](scripts.md).
+POPS will save new annotations (`N1`, `N2`, etc, or if staging already
+exists, `pN1`, `pN2`, etc, meaning _predicted_ stage).  These
+annotations can be selected from the [Annotations
+table](annotations.md), used in [masks](masks.md), or other [Luna
+commands](scripts.md).
+
+If you want to set different options (e.g. multiple channels) then use
+the `RUN-POPS` or `POPS` commands in the [_Console_](scripts.md) to
+run _POPS_ generically rather than using this convenience interface (it calls the same underlying code).

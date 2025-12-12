@@ -3,7 +3,7 @@
 
 ## Requirements
 
-Lunascope is supported for Python 3.9 to 3.13.
+Lunascope is supported for Python 3.10 to 3.13.
 
 Ideally, use a Python _virtual environment_: e.g.
 

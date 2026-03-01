@@ -9,8 +9,8 @@ This dock supports different ways to input EDF and annotation data:
  - _Load_ : load a _sample list_
 
  - _Build_ : build a sample list by pointing to a folder (Lunascope
-   will search for all EDFs, and pair matching annotation files),
-   effectively building a sample-list on-the-fly
+   will search for all EDFs and pair matching annotation files),
+   effectively building a sample list on the fly
 
  - _EDF_ : load a single EDF
 
@@ -25,8 +25,6 @@ If you are not expecting staging to be present, unchecking the _Staging_ checkbo
 
 ## Selecting individuals
 
-If you've multiple indivdiduals via loading or building a sample-list, select the one to view by clicking on that row.
+If you have multiple individuals loaded via a sample list, select the one to view by clicking on that row.
 
 You can also filter the rows by entering text in the field above this table, e.g. to search for a particular recording.
-
-

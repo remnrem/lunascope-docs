@@ -1,7 +1,7 @@
 # Luna Scripts
 
-Lunascope can execute **Luna scripts** to automate processing.  These docks are hidden by default, but can be
-raised by either the View menu, or Ctrl/Cmd-8 (console dock) and Ctrl/Cmd-9 (output dock).
+Lunascope can execute **Luna scripts** to automate processing. These docks are hidden by default, but can be
+opened via the View menu, Ctrl/Cmd-8 (console dock), or Ctrl/Cmd-9 (output dock).
 
 ## A simple script
 
@@ -10,12 +10,12 @@ To apply the `HEADERS` and `STATS` command, i.e. similar to running
 ```
 luna s.lst 1 -o out.db -s ' HEADERS & STATS sig=C3,C4 '
 ```
-enter the script in the console (which can also save/load scripts):
+enter the script in the console (which can also save and load scripts):
 
 ![Script Example](imgs/luna-script.png)
 
-and then press _Execute_.  This will send any output to the output dock.  For example, this table is
-the same as the command line
+and then press _Execute_. This will send any output to the output dock. For example, this table is
+the same as running the following at the command line:
 
 ```
 destrat out.db +STATS -r CH
@@ -42,11 +42,11 @@ Here we have an example script to detect NREM spindles and slow oscillations, wh
 
 ![Script 2](imgs/luna-script-2.png)
 
-If we load this script and just press _Execute_ we'll get an error message:
+If we load this script and just press _Execute_, we'll get an error message:
 
 ![Script Error](imgs/luna-script-2-err.png){ width="50%" } 
 
-This correctly notes that `${s}` (the signals to use) is required but has not been specified.  These need to be specified in the [parameter](parameters.md) dock (ignore the top examples in this case, but not how variables `${s}`, `${r}` (the reference channels) and `${frqs}` (the spindle frequencies) have been specified: 
+This correctly notes that `${s}` (the signals to use) is required but has not been specified. These need to be specified in the [parameter](parameters.md) dock. Ignore the top examples in this case, but note how variables `${s}`, `${r}` (the reference channels), and `${frqs}` (the spindle frequencies) have been specified:
 
 ![Script Error](imgs/param-dock2.png){ width="50%" } 
 
@@ -56,11 +56,11 @@ luna s.lst 1 -o out.db s=C3 r=A1,A2 frqs=11,15 < spindle.txt
 ```
 (assuming the Luna script is called `spindle.txt`).
 
-Now it should run properly (i.e. assuming channels `C3`, `A1` and `A2` exist, and there are NREM annotations) and give output as follows: here it shows spindle metrics for fast and slow (`F` = 15 and 11 Hz) for two channels (here, `s=C3,C4` obviously, rather than a single channel):
+Now it should run properly (assuming channels `C3`, `A1`, and `A2` exist, and there are NREM annotations) and give output as follows: here it shows spindle metrics for fast and slow spindles (`F` = 15 and 11 Hz) for two channels (`s=C3,C4`, rather than a single channel):
 
 ![Script Output](imgs/luna-script-2-out.png)
 
-Inspecting the script, we see it will generate annotations (`SP11` and `SP15` as well as `SO`) marking where detected spindles occur.   After running the script, these will be attached to the in-memory instance, and can be viewed (or used in any subsequent Luna command, until _Refresh_ is hit or a new EDF loaded):
+Inspecting the script, we see that it will generate annotations (`SP11` and `SP15`, as well as `SO`) marking where detected spindles occur. After running the script, these will be attached to the in-memory instance and can be viewed, or used in any subsequent Luna command, until _Refresh_ is hit or a new EDF is loaded:
 
 ![Script Variant](imgs/luna-script-2-b.png){ width="60%"}
 
@@ -83,8 +83,8 @@ robust pipeline.___
 
 
 A batch job in Lunascope applies the current Luna script to all
-samples in the current sample list, iteratively.  For example, consider
-we have this script, to enumate the number of NREM and REM obstructive
+samples in the current sample list, iteratively. For example, consider
+this script, which enumerates the number of NREM and REM obstructive
 apnea events, respectively:
 
 ```
@@ -97,13 +97,13 @@ MASK ifnot=R
 ANNOTS annot=Obstructive_Apnea
 ```
 
-Instead of clicking the _Execute_ button (that applies the script to the current state
+Instead of clicking the _Execute_ button (which applies the script to the current state
 of the attached EDF), use the top menu _Project / Evaluate (project)_:
 
 ![Batch jobs](imgs/luna-script-batch-2.png){ width="50%" }
 
 This loads each EDF sequentially, runs the job, and saves any
-output. Only after all jobs are finished, the console will update with
+output. Only after all jobs are finished will the console update with
 the output:
 
 ![Batch jobs](imgs/luna-script-batch-1.png){ width="70%" }
@@ -111,8 +111,8 @@ the output:
 When finished, the viewer will have the final record in the sample
 list loaded.
 
-The outputs are collated and then displayed in a single, collated
-form. An `ID` column (based on the sample list ID) is added to each
+The outputs are collated and then displayed together.
+An `ID` column (based on the sample list ID) is added to each
 table to indicate to which individual those data belong:
 
 ![Batch results](imgs/luna-script-batch-3.png){ width="100%" }

@@ -1,6 +1,6 @@
 # Annotations
 
-Here, annotations means any type of event-based data. Events can
+Here, annotations mean any type of event-based data. Events can
 represent stages (N1, N2, R, W), respiratory events, or user-defined
 marks.
 
@@ -20,7 +20,7 @@ When selecting an annotation class, all its instances are added to the _Instance
 
 ## Instances
 
-For selected annotation classes, this lists all instances, sorted by
+For selected annotation classes, the _Instances_ dock lists all instances, sorted by
 clock-time. As well as clock-time, the table shows the event onset in
 seconds past the EDF start time, and the duration of the event (also
 in seconds).
@@ -34,5 +34,4 @@ annotation has been added.
 
 You can also filter which instances are displayed in this table (based
 on annotation class) by typing a comma-delimited list of terms, as in
-the example above that retricts displayed rows to wake (W) and artifact events.
-
+the example above that restricts displayed rows to wake (W) and artifact events.

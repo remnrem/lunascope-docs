@@ -24,11 +24,10 @@
 
 There are several known issues:
 
- - occassionally, channels will not display; refresh the recording
+ - occasionally, channels will not display; refresh the recording
 
  - spectrograms, hypnograms and hypnodensity plots may not always indicate gaps (removed/masked epochs)
 
  - user-defined filters only work for Render mode
 
  - outside of Render mode, IIRs have edge effects (no padding)
-

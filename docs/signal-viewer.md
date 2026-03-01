@@ -8,29 +8,29 @@ The central viewer displays synchronized multi-channel PSG signal and annotation
 
 The top panel displays:
 
- - clock-times in hour intervals (24-hour format) across the top
+ - clock times in hourly intervals (24-hour format) across the top
 
- - a representation of the hypnogram, when staging data are present: NREM, REM and wake are blues, red and green respectively
+ - a representation of the hypnogram, when staging data are present: NREM, REM, and wake are blue, red, and green respectively
 
- - a lower, smaller representation of the currently included (i.e. _unmasked_ epochs) at the bottom
+ - a lower representation of the currently included (i.e. _unmasked_) epochs at the bottom
 
 ## Pan/zoom navigation
 
-You navigate across signals by clicking on this top panel.  The white bar (here around 10pm or 22:00) dictates the interval shown in the lower panel.
+You navigate across signals by clicking on this top panel. The white bar (here around 10pm or 22:00) marks the interval shown in the lower panel.
 
 As well as using the mouse, you can use the cursor keys:
 
- - left/right : move one epoch (30-seconds) backwards or forwards in time
+ - left/right : move one epoch (30 seconds) backward or forward in time
 
- - shift + left/right : move multiple epochs backwards or forwards
+ - shift + left/right : move multiple epochs backward or forward
 
- - up/down : zoom in/out, to change the span of the lower panel; unless you've _Rendered_ the data (see below), the maximum span is 30 seconds
+ - up/down : zoom in/out to change the span of the lower panel; unless you've _Rendered_ the data (see below), the maximum span is 30 seconds
 
- - click-and-drag: if you've _rendered_ the data, you can click-hold-drag to select larger windows of time to be shown;  if you double-click within the selected region, it will return to a single epoch view;  you can resize or drag the larger interview by selecting it
+ - click-and-drag : if you've _rendered_ the data, you can click and drag to select a larger time window; if you double-click within the selected region, it will return to a single-epoch view; you can also resize or drag the selected interval
 
 Zoom and pan controls enable precise inspection of signal segments.
 
-For continuous signals (those will more than 20 discrete values), when
+For continuous signals (those with more than 20 discrete values), when
 zooming out, at a certain point Lunascope will show the min/max per
 "pixel-timepoint" (i.e. the interval of time that corresponds to a
 single pixel on the screen); when zooming out even further, to prevent
@@ -40,7 +40,7 @@ approximated by a robust estimate of the standard deviation.
 
 ## Rendering data
 
-A main panel also contains some widgets for altering the view, including a _Render_ button.
+The main panel also contains some widgets for altering the view, including a _Render_ button.
 
 ![Viewer 2](imgs/luna-view-2.png){ width="80%" } 
 
@@ -79,25 +79,25 @@ There are three main advantages to rendering signals:
 Three things to be mindful of when using the rendering option:
 
  - Although rendering speeds up subsequent viewing, the process itself can
- take a few moments as it has to pre-process the entire dataset.
- Especially for large studies with many signals and high sampling
- rates, only use this function if you need it.
+   take a few moments because it has to pre-process the entire dataset.
+   Especially for large studies with many signals and high sampling
+   rates, use this function only when needed.
 
  - Rendering takes a snapshot of _the currently selected signals and
- annotations_.  If you want to add a new signal to the view, you need
- to press _Render_ to re-render after selecting that signal or
- annotation. (You can drop remove/add back in rendered
- signals/annotations without re-rendering however.)
+   annotations_. If you want to add a new signal to the view, you need
+   to press _Render_ again after selecting that signal or
+   annotation. (You can still drop, remove, and re-add already rendered
+   signals/annotations without re-rendering.)
  
- - If you change the underlying signal data -- e.g. filtering,
- referencing or rescaling, etc via the [console](scripts.md) -- these
- changes will not be directly shown (unlike the initial, unrendered
- view, which directly pulls data from the in-memory EDF
- representation).  Rather, one needs to press _Render_ again to update
- the rendered view.  To indicate this, Lunascope always sets the
- Render button to __orange__ after running _any_ Luna script, as a
- reminder that the underlying data may have changed.  If in doubt,
- just press _Render_ once more to update the view.
+ - If you change the underlying signal data, for example via filtering,
+   referencing, or rescaling in the [console](scripts.md), those
+   changes will not be shown directly in the rendered view. Unlike the
+   initial unrendered view, which pulls data directly from the
+   in-memory EDF representation, the rendered view must be refreshed
+   manually. To indicate this, Lunascope always sets the Render button
+   to __orange__ after running _any_ Luna script, as a reminder that
+   the underlying data may have changed. If in doubt, press _Render_
+   again to update the view.
 
 
 ## Y-scaling
@@ -108,20 +108,20 @@ also allows for different y-axis scaling:
 
 ![Viewer 3](imgs/luna-view-3.png){ width="80%" }
 
- - by default, unrendered signals are plotted to autoscale within the
+ - by default, unrendered signals autoscale within the
    view window - i.e. each track will be scaled such that the minimum
    and maximum signal values are at the bottom/top of each track; as
    one scrolls left or right, the scale can change; extreme values will implicitly squash the rest of the signal to a near flat line
 
  - _Empiric Y_ : after rendering, the bottom/top of each track is set to the 10th
    and 90th percentile of the signal value; this fixes the scale and gives a generally
-   sensible view of most signals, which can make it more intuitive to see changes in signal amplitude scrolling left/right; extreme values
-   will now be drawn below or above the actual track, i.e. meaning tracks can overlap
+   sensible view of most signals, which can make it more intuitive to see changes in signal amplitude while scrolling left/right; extreme values
+   will now be drawn below or above the actual track, which means tracks can overlap
 
  - _Clip Y_ : this stops overlap across channels with empiric scaling,
    by clipping the signal to the top/bottom of each track
 
-Examples are these three viewes for the same interval and set of signals:
+Examples are these three views for the same interval and set of signals:
 
 Default (autoscaling):
 
@@ -145,11 +145,9 @@ You can also:
 
  - alter the scaling and spacing of each signal track;
 
- - _spacing_ controls whether tracks are typically spaced (value of 1.0) versus, at the other extreme, completely overlapping (value of 0.0); it can sometimes be useful to overlay two signals to see the differences betweeen them more clearly
+ - _spacing_ controls whether tracks are typically spaced (value of 1.0) versus, at the other extreme, completely overlapping (value of 0.0); it can sometimes be useful to overlay two signals to see the differences between them more clearly
 
- - _scaling_ controls how many pixels each track takes up, thereby altering the display Y-axes rather than the physical-unit scaling per se; this can be useful primarily in the [hd-EEG case](hd-eeg.md), where one wants to view multiple inter-related signals
+ - _scaling_ controls how many pixels each track takes up, thereby altering the display Y-axes rather than the physical-unit scaling per se; this can be useful primarily in the [hd-EEG case](config.md#hd-eeg-application), where one wants to view multiple interrelated signals
 
  - change the colors of the main view, by selecting options from the top Palette menu
  
-
-

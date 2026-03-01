@@ -1,24 +1,24 @@
 # Configuration files
 
-Configuration files can be used to automatically control the behavior of Lunascope in a number of ways:
+Configuration files can be used to control the behavior of Lunascope in a number of ways:
 
  - to determine the ordering of signals and annotations in the docks and main viewer
 
  - to specify bespoke colors for signals and annotations
 
- - to specify display y-axes ranges, as well as reference lines (e.g. at 0)
+ - to specify display y-axis ranges, as well as reference lines (e.g. at 0)
 
  - to specify filters (Butterworth IIR bandpass) with arbitrary transition frequencies
 
- - to set which docks are visible or hidden on start up
+ - to set which docks are visible or hidden on startup
 
  - to specify the locations of resources for POPS
 
- - to control other options, e.g. behavior of copy/save outputs table with respect to missing values, etc
+ - to control other options, e.g. how the copy/save outputs table handles missing values
 
 ## Example config file
 
-Here is a minimal example (e.g. a plaintext file called `basic.cfg`):
+Here is a minimal example, using a plaintext file called `basic.cfg`:
 
 ```
 % thicker line for signals (slower to render, but better when screen sharing)
@@ -60,8 +60,8 @@ This populates the _Config_ tab of the _Settings_ dock:
 ![img](imgs/luna-config-1.png){ width="50%" } 
 
 
-Alternatively, you can add/edit the text in this _Config_ tab
-directly, or use the _Load_/_Save_ options to load/save the
+Alternatively, you can edit the text in this _Config_ tab
+directly, or use the _Load_/_Save_ options to load or save the
 configuration as a plain text file.
 
 Importantly, configurations are applied:
@@ -83,8 +83,8 @@ A config file is a plaintext file that has a number of sections:
 
  - `%` : lines starting with `%` are treated as comments
 
-Typically, the label must appear before the corresponding entries (one-per-line);
-an exception is that the initial default section is `[par]`, i.e. so this:
+Typically, the label must appear before the corresponding entries (one per line).
+An exception is that the initial default section is `[par]`, so this:
 ```
 line-weight = 2
 ```
@@ -96,9 +96,9 @@ line-weight = 2
 
 ## `[sig]`: Signal options
 
-After a `[sig]` flag, non-empty lines are assumed to start with the channel label, optionally followed by different arguments:
+After a `[sig]` flag, non-empty lines are assumed to start with the channel label, optionally followed by arguments:
 
- - `col` : set the color of the signal, either as a hexcode (`#FFFFFF`) or name (`white`)
+ - `col` : set the color of the signal, either as a hex code (`#FFFFFF`) or name (`white`)
  - `ylim` : set the physical min/max, e.g. `ylim=-200,200`
  - `y` : draw reference lines at these _y_ values, e.g. `y=-80,0,80`
  - `f` : define a _User_ filter option, e.g. `f=10,30` for a bandpass 10 - 30 Hz filter
@@ -108,7 +108,7 @@ signals are shown in Lunascope.
 
 ### PSG example
 
-Here we use a config file in a standard PSG setting, to group channels
+Here we use a config file in a standard PSG setting to group channels
 by type (EEG, EMG, EOG, ECG, respiratory, etc):
 
 ```
@@ -159,8 +159,8 @@ Here the colors are defined by hex codes, but you can use standard
 color labels too.  Note that this example also orders the annotations
 with the `[ann]` flag.
 
-The above leads to this grouping/coloring of PSG channels (i.e. which
-is different from the order in the original EDF)
+The above leads to this grouping/coloring of PSG channels, which
+differs from the order in the original EDF.
 
 ![Viewer 1](imgs/luna-view-1.png){width="100%"}
 
@@ -168,7 +168,7 @@ is different from the order in the original EDF)
 
 Lunascope supports visualization of high-density EEG recordings with
 hundreds of channels.  Here, we used a color-map to order hd-EEG
-channels along a anterior-posterior gradient, and color them
+channels along an anterior-posterior gradient, and color them
 respectively.  (A single prompt to ChatGPT was used to generate this
 file, in fact):
 
@@ -194,7 +194,7 @@ NREM transients, here in a small 6-second window.
 ## `[ann]` : annotations
 
 Annotation order can be controlled the same way as for signals; in
-terms of other options, only the `col` keyword is recognized however.
+terms of other options, only the `col` keyword is recognized.
 
 ## `[par]` : general parameters
 

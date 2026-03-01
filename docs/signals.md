@@ -1,6 +1,6 @@
 # Signals
 
-The Signals dock is used to select which are viewed (and be included in a rendered view), by checking/uncheckng the first _Sel_ column.
+The Signals dock is used to select which signals are viewed, and which are included in a rendered view, by checking/unchecking the first _Sel_ column.
 
 ![Signals Dock](imgs/signals-dock.png){ width="60%" }
 
@@ -22,7 +22,4 @@ Other features include:
  - SR shows the sample rate
 
  - you can specify the order of channels through a [channel
-   map](hd-eeg.md), applied when first attaching the EDF
-
-
-
+   map](config.md#hd-eeg-application), which is applied when first attaching the EDF

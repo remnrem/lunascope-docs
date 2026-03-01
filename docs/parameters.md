@@ -18,7 +18,7 @@ settings that are specific to the Lunascope viewer.
 
 ![Parameter Dock 2](imgs/param-dock2.png){ width="50%" }
 
-It can sometimes be necessary to specify parameters to allow data to be loaded - e.g. if the annotations have a nonstandard YMD date format, one would add `date-format=YMD` or else Lunascope would give an error when first trying to load those.   This is equivalent to the options that come before the main Luna script:
+It can sometimes be necessary to specify parameters to allow data to be loaded. For example, if the annotations have a nonstandard YMD date format, one would add `date-format=YMD`; otherwise Lunascope would give an error when first trying to load them. This is equivalent to the options that come before the main Luna script:
 
 ```
 luna s.lst 1 date-format=YMD th=2.5 @param.txt -o out.db < script.txt
@@ -53,6 +53,5 @@ You can specify a parameter file when initiating Lunascope from the command line
 ```
 lunascope s.lst -p param.txt
 ```
-which will pre-populate this dock with that file.
-
+This will pre-populate this dock with that file.
 

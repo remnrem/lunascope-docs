@@ -10,7 +10,7 @@ Ideally, use a Python _virtual environment_: e.g.
 ```
 python3.13 -m venv myenv
 ```
-and active it (on macOS/Linux):
+and activate it (on macOS/Linux):
 ```
 source myenv/bin/activate    # macOS / Linux
 ```
@@ -22,15 +22,15 @@ myenv\Scripts\activate       # Windows
 
 ## Download
 
-Download `lunascope` with `pip` 
+Download `lunascope` with `pip`:
 
 ```
 pip install lunascope
 ```
 
-This will also install the dependent packes including [`lunapi`](https://zzz-luna.org/luna/lunapi/).
+This will also install the dependent packages including [`lunapi`](https://zzz-luna.org/luna/lunapi/).
 
-__Note:__ you may have to use `python3` and `pip3` on some platforms. 
+__Note:__ You may have to use `python3` and `pip3` on some platforms.
 
 ## Running Lunascope
 
@@ -53,13 +53,13 @@ To open Lunascope with a particular EDF:
 lunascope sleep1.edf
 ```
 
-To open Lunascope with a particular annotation file (.annot or .xml as [described here](https://zzz-luna.org/luna/ref/annotations/#luna-annotations)):
+To open Lunascope with a particular annotation file (`.annot` or `.xml`, as [described here](https://zzz-luna.org/luna/ref/annotations/#luna-annotations)):
 
 ```
 lunascope sleep1.annot
 ```
 
-To open Lunascope with a particular [sample list](https://zzz-luna.org/luna/luna/args/#sample-lists)
+To open Lunascope with a particular [sample list](https://zzz-luna.org/luna/luna/args/#sample-lists):
 
 ```
 lunascope s.lst
@@ -84,6 +84,4 @@ If new versions are available, force an upgrade with:
 ```
 pip install --upgrade lunascope
 ```
-
-
 

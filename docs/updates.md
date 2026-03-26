@@ -2,7 +2,7 @@
 
 ## Updates
 
-### v0.2.3 (1-Dec-2025)
+### v0.3.1 (26-Mar-2026)
 
  - new configuration support (filtering, y-lines, signal/annotation ordering/coloring, etc)
 

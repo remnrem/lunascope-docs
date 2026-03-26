@@ -1,4 +1,4 @@
-# Lunascope v0.2.3
+# Lunascope v0.3.1
 
 Lunascope is an interactive EEG and sleep signal viewer built on top
 of the [Luna suite](https://zzz-luna.org/luna). It provides
@@ -24,7 +24,7 @@ synchronized visualization of signals, annotations, and sleep staging.
 
 ## Development status
 
-Lunascope is a new software package, and v0.2.3 is an _alpha_ release.
+Lunascope is a new software package, and v0.3.1 is an _alpha_ release.
 As such, there are likely to be some [rough
 edges](updates.md#known-issues). Feedback on bugs or
 other issues is appreciated.

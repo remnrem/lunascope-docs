@@ -16,9 +16,7 @@ The top panel displays:
 
 ## Pan/zoom navigation
 
-You navigate across signals by clicking on this top panel. The white bar (here around 10pm or 22:00) marks the interval shown in the lower panel.
-
-As well as using the mouse, you can use the cursor keys:
+You navigate across signals by clicking on this top panel. The white bar marks the interval shown in the lower panel. Cursor keys can also be used:
 
  - left/right : move one epoch (30 seconds) backward or forward in time
 
@@ -28,42 +26,36 @@ As well as using the mouse, you can use the cursor keys:
 
  - click-and-drag : if you've _rendered_ the data, you can click and drag to select a larger time window; if you double-click within the selected region, it will return to a single-epoch view; you can also resize or drag the selected interval
 
-Zoom and pan controls enable precise inspection of signal segments.
+Zoom and pan controls allow precise inspection of signal segments. For continuous signals, zooming out eventually switches to a min/max summary per screen pixel, and at broader spans Lunascope uses an interquartile-style summary to avoid visual saturation.
 
-For continuous signals (those with more than 20 discrete values), when
-zooming out, at a certain point Lunascope will show the min/max per
-"pixel-timepoint" (i.e. the interval of time that corresponds to a
-single pixel on the screen); when zooming out even further, to prevent
-saturation, Luna will show the interquartile range (25th/75th) as
-approximated by a robust estimate of the standard deviation.
+## Measurement probe
 
+In the main signal panel, press and hold the left mouse button to bring
+up a temporary measurement probe. This acts like a visual caliper: it
+shows the value at the current point, and while you keep dragging within
+the same channel it also reports the value difference and elapsed time
+between the start point and current point.
+
+While the probe is active, Lunascope can also show extra overlays such
+as nearby annotations, peak markers, zero-crossings, simple window
+statistics, and optional time grid lines.
+
+The probe shortcuts are shown in the on-screen legend while it is
+active. In practice, this means you can keep the basic caliper behavior
+simple, then toggle extra overlays only when you need them.
 
 ## Rendering data
 
-The main panel also contains some widgets for altering the view, including a _Render_ button.
+The main panel also includes controls for altering the view, including a _Render_ button.
 
 ![Viewer 2](imgs/luna-view-2.png){ width="80%" } 
 
-Internally, the view operates in two modes:
+The viewer operates in two modes:
 
- - on first attaching an EDF, Lunascope loads signals directly from
-   the in-memory EDF on an _as needed_ basis to plot them; signals and
-   annotations can be included or excluded from the view by clicking
-   on the respective [signal](signals.md) or
-   [annotation](annotations.md) dock. In this mode, however, there is a restriction that no
-   more than 30 seconds of signal data can be viewed at a time (there
-   is no restriction for annotation-only views).
+ - On first attaching an EDF, Lunascope loads signals directly from the in-memory EDF as needed. Signals and annotations can be included or excluded through the [Signals](signals.md) and [Annotations](annotations.md) docks. In this mode, no more than 30 seconds of signal data can be viewed at once, although annotation-only views are not subject to that limit.
+ - After pressing _Render_, Lunascope takes a snapshot of the currently selected signals and annotations and processes those data for more efficient viewing. Subsequent displays come from the rendered cache rather than the live in-memory record.
 
- - on pressing _Render_, Lunascope effectively takes __a snapshot of
-   the currently selected signals and annotations__, then processes
-   those data for more efficient viewing; subsequently, all items
-   displayed are from the _cached_ or _rendered_ data store.
-
-Rendering involves generating decimated (downsampled) versions of the data, with
-anti-alias filtering, and allows for subsequent further downsampling
-to enable large intervals of time to be displayed (i.e. hours) without
-Lunascope trying to plot millions of sample points directly (which
-would slow plotting).
+Rendering generates decimated, anti-aliased versions of the data and supports further downsampling, which makes it practical to view hours of data without plotting millions of sample points directly.
 
 There are three main advantages to rendering signals:
 
@@ -74,52 +66,22 @@ There are three main advantages to rendering signals:
  - it precomputes various summary statistics and other things that can
    enhance visualization (although these are not yet included in the
    alpha release of Lunascope)
- 
 
-Three things to be mindful of when using the rendering option:
+Three things are worth keeping in mind when using rendering:
 
- - Although rendering speeds up subsequent viewing, the process itself can
-   take a few moments because it has to pre-process the entire dataset.
-   Especially for large studies with many signals and high sampling
-   rates, use this function only when needed.
-
- - Rendering takes a snapshot of _the currently selected signals and
-   annotations_. If you want to add a new signal to the view, you need
-   to press _Render_ again after selecting that signal or
-   annotation. (You can still drop, remove, and re-add already rendered
-   signals/annotations without re-rendering.)
- 
- - If you change the underlying signal data, for example via filtering,
-   referencing, or rescaling in the [console](scripts.md), those
-   changes will not be shown directly in the rendered view. Unlike the
-   initial unrendered view, which pulls data directly from the
-   in-memory EDF representation, the rendered view must be refreshed
-   manually. To indicate this, Lunascope always sets the Render button
-   to __orange__ after running _any_ Luna script, as a reminder that
-   the underlying data may have changed. If in doubt, press _Render_
-   again to update the view.
-
+ - Rendering speeds up later viewing, but the initial render can take time because the full dataset must be preprocessed, especially for large studies with many channels or high sampling rates.
+ - Rendering only includes the currently selected signals and annotations. If you add a new signal or annotation later, render again.
+ - If the underlying signal data change, for example through filtering, referencing, or rescaling in the [console](scripts.md), the rendered view does not update automatically. The _Render_ button turns orange after any Luna script to indicate that the rendered cache may be stale.
 
 ## Y-scaling
 
-After rendering, the button turns from __white__ to __green__ to indicate that
-display items will now be drawn from the current snapshot. As noted, rendering
-also allows for different y-axis scaling:
+After rendering, the button turns from __white__ to __green__ to indicate that display items are now drawn from the current snapshot. Rendering also allows different y-axis scaling modes:
 
 ![Viewer 3](imgs/luna-view-3.png){ width="80%" }
 
- - by default, unrendered signals autoscale within the
-   view window - i.e. each track will be scaled such that the minimum
-   and maximum signal values are at the bottom/top of each track; as
-   one scrolls left or right, the scale can change; extreme values will implicitly squash the rest of the signal to a near flat line
-
- - _Empiric Y_ : after rendering, the bottom/top of each track is set to the 10th
-   and 90th percentile of the signal value; this fixes the scale and gives a generally
-   sensible view of most signals, which can make it more intuitive to see changes in signal amplitude while scrolling left/right; extreme values
-   will now be drawn below or above the actual track, which means tracks can overlap
-
- - _Clip Y_ : this stops overlap across channels with empiric scaling,
-   by clipping the signal to the top/bottom of each track
+ - By default, unrendered signals autoscale within the current view window. As you scroll, the scale can change, and extreme values can flatten the rest of the trace.
+ - _Empiric Y_ sets each track to the 10th and 90th percentile after rendering. This fixes the scale and usually makes amplitude changes easier to compare while scrolling, although extreme values can extend beyond the nominal track area.
+ - _Clip Y_ prevents that overlap by clipping the signal to the top and bottom of each track.
 
 Examples are these three views for the same interval and set of signals:
 
@@ -137,17 +99,12 @@ Empiric scaling with clipping:
 
 ## Other viewing options
 
-You can also:
+Other viewing options include:
 
- - hide/show the labels for signals and annotations, through the _Labels_ checkbox
+ - show or hide labels for signals and annotations with _Labels_
+ - set fixed Y-axis minimum and maximum values with _Fixed Y_; this currently applies to all signals
+ - alter spacing and scaling for each signal track
+ - change the viewer color scheme from the top Palette menu
 
- - set fixed Y-axis minimum and maximum values, by selecting _Fixed Y_ and adjusting the min./max. values; note this currently applies to _all_ signals
-
- - alter the scaling and spacing of each signal track;
-
- - _spacing_ controls whether tracks are typically spaced (value of 1.0) versus, at the other extreme, completely overlapping (value of 0.0); it can sometimes be useful to overlay two signals to see the differences between them more clearly
-
- - _scaling_ controls how many pixels each track takes up, thereby altering the display Y-axes rather than the physical-unit scaling per se; this can be useful primarily in the [hd-EEG case](config.md#hd-eeg-application), where one wants to view multiple interrelated signals
-
- - change the colors of the main view, by selecting options from the top Palette menu
+An advanced render-only feature is [signal modulation (`sigmod`)](sigmod.md), which adds color-coded overlays to rendered traces based on derived signal properties.
  

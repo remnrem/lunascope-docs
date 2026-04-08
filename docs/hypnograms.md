@@ -1,64 +1,57 @@
 # Hypnograms
 
-Hypnograms summarize sleep stages across time.
-
-If valid staging data are present as annotations, a hypnogram will be generated both in the
-main signal view (navigation panel) and in the hypnogram dock.
-
-Note that stages must map to `N1`, `N2`, `N3`, `R`, `W`, and `?`. If other labels have been used, you can `remap` them via a [parameter file](parameters.md).
+Hypnograms summarize sleep stages across time. If valid staging annotations are present, a hypnogram appears both in the main signal view and in the hypnogram dock. Stages must map to `N1`, `N2`, `N3`, `R`, `W`, and `?`; if other labels are used, they can be `remap`ped via a [parameter file](parameters.md).
 
 ![Detailed Hypnogram](imgs/hypno-hypno.png)
 
-This tab also gives some simple summary statistics: e.g. stage
-durations and WASO (minutes). You can alter some of the options and
-recreate these hypnogram statistics, e.g. by altering lights out/on
-times and then pressing _Run HYPNO_.  See Luna documentation for more
-details.
-
+This tab also reports simple summary statistics such as stage durations and WASO. Lights out/on times can be adjusted before recalculating the output with _Run HYPNO_.
 ![Hypnogram](imgs/hypno1.png)
-
-
 ## Staging evaluation (SOAP)
 
-As [described here](https://zzz-luna.org/luna/ref/soap/), the SOAP command evaluates signal/staging consistency. When staging data are present, select a channel and
-press _SOAP_ to generate the kappa coefficients and a SOAP-hypnodensity plot:
+As [described here](https://zzz-luna.org/luna/ref/soap/), SOAP evaluates
+signal/staging consistency. When staging data are present, select a
+channel and press _SOAP_ to generate kappa coefficients and a
+SOAP-hypnodensity plot:
 
 ![SOAP Visualization](imgs/soap.png)
 
 
 ## Automated Staging (POPS)
 
-To use POPS, first download and expand this [POPS resource .zip](http://zzz.bwh.harvard.edu/dist/luna/pops.zip). Then point the _POPS folder_ box to the location where you saved it, rather than the default path `~/dropbox/pops/` (or use a [configuration file](config.md) to set the [`pops-path`](config.md#par-general-parameters) variable).
+Lunascope can download the POPS resource bundle for you. Use either:
 
-As [described here](https://zzz-luna.org/luna/ref/pops/), the POPS
-system performs automatic sleep staging and hypnodensity
-visualization.
+ - _Project / Download POPS Resources..._
 
-Select a channel to use (currently, only the single-EEG `s2` model is supported), point Lunascope to where the POPS model files have been downloaded and click _Run POPS_.  This will produce a hypnogram output of predicted stages:
+ - the _Get..._ button beside the POPS path field
 
 ![POPS Hypnogram](imgs/pops-hypno.png)
 
-You can toggle between this view and the hypnodensities by clicking the _Hypnodensity_ radio button:
+This downloads the current POPS bundle, extracts the model files,
+updates the _POPS folder_ field to the resolved model directory, and
+remembers that location for later launches.
+
+If you prefer, you can still download and expand the [POPS resource
+.zip](http://zzz.nyspi.org/dist/luna/pops.zip) manually and point the
+_POPS folder_ box to that location yourself, or use a [configuration
+file](config.md) to set [`pops-path`](config.md#par).
+
+As [described here](https://zzz-luna.org/luna/ref/pops/), POPS performs
+automatic sleep staging and hypnodensity visualization.
+
+Select one or more suitable EEG channels, point Lunascope to the downloaded POPS model files, and run _POPS_. This produces a hypnogram of predicted stages. At present only the single-EEG `s2` model is supported in this convenience interface.
+
+If you select multiple comparable EEG channels, they are treated as equivalent inputs for prediction. In that mode POPS predicts from each candidate channel separately and then uses the most confident prediction for each epoch. See the Luna [POPS prediction](https://zzz.nyspi.org/luna/ref/pops/#pops-prediction) documentation for the underlying details.
+
+![POPS Hypnogram](imgs/pops-hypno.png)
+
+You can switch between this view and the hypnodensities with the _Hypnodensity_ option:
 
 ![POPS Hypnodensity](imgs/pops-hypnodens.png)
 
-There is also an option to ignore any existing staging that might be
-present. (This means that the kappa statistics, etc., are not
-computed, but all epochs will be included; otherwise,
-epochs marked as unknown (`?`) are excluded from automated staging.)
-
-You can see a fuller set of POPS metrics which are deposited in Luna's
-primary _Output_ dock (Ctrl-9 / Cmd-9 keyboard shortcut). For example, here
-we see the stage-specific metrics:
+There is also an option to ignore existing staging. In that mode kappa statistics are not computed, but all epochs are included; otherwise epochs marked as unknown (`?`) are excluded from automated staging. A fuller set of POPS metrics is written to the primary [_Output_ dock](scripts.md); here the stage-specific metrics are shown:
 
 ![POPS Metrics](imgs/pops-metrics.png)
 
-POPS will save new annotations (`N1`, `N2`, etc, or if staging already
-exists, `pN1`, `pN2`, etc, meaning _predicted_ stage).  These
-annotations can be selected from the [Annotations
-table](annotations.md), used in [masks](masks.md), or other [Luna
-commands](scripts.md).
+POPS saves new annotations (`N1`, `N2`, and so on, or if staging already exists, `pN1`, `pN2`, and so on to indicate predicted stage). These annotations can then be selected from the [Annotations table](annotations.md), used in [Masks](masks.md), or incorporated into other [Luna scripts](scripts.md).
 
-If you want to set different options (e.g. multiple channels) then use
-the `RUN-POPS` or `POPS` commands in the [_Console_](scripts.md) to
-run _POPS_ generically rather than using this convenience interface (it calls the same underlying code).
+If you need different options, you can invoke `RUN-POPS` or `POPS` directly from the [_Console_](scripts.md) instead of this convenience interface.

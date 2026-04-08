@@ -4,6 +4,7 @@ theme:
   name: material
 
 markdown_extensions:
+  - admonition
   - attr_list
   - md_in_html
 
@@ -24,7 +25,13 @@ nav:
   - Spectrograms: spectrograms.md
   - Hypnograms: hypnograms.md
   - Masks: masks.md
-  - Luna Scripts: scripts.md
   - Parameters: parameters.md
+  - Luna Scripts: scripts.md
+  - Moonbeam: moonbeam.md
+  - Actigraphy: actig.md
+  - Explorer: explorer.md
   - Configuration: config.md
+  - Signal modulation: sigmod.md
+  - Command help: commands.md
+  - Sessions: sessions.md
   - Updates/known issues: updates.md

@@ -1,25 +1,8 @@
 # Signals
 
-The Signals dock is used to select which signals are viewed, and which are included in a rendered view, by checking/unchecking the first _Sel_ column.
+The Signals dock controls which channels are visible and which channels
+are included when you render the view.
 
 ![Signals Dock](imgs/signals-dock.png){ width="60%" }
 
-Other features include:
-
- - toggle between selecting _all_ or _none_ by clicking the top button (_Select all/none_)
-
- - you can filter rows by typing a comma-delimited list of channels,
-   which is useful for quickly finding a channel in an EDF with dozens
-   of channels; note that any _all_/_none_ toggle will only apply to the
-   currently shown signals
-
- - you can apply on-the-fly filtering of signals (via a Butterworth
-   IIR designed primarily for EEG channels); the _User_ option can be defined via
-   a [config file](config.md).
-
- - PDIM shows the physical dimension (units) from the EDF header
-
- - SR shows the sample rate
-
- - you can specify the order of channels through a [channel
-   map](config.md#hd-eeg-application), which is applied when first attaching the EDF
+The dock also supports all/none selection, row filtering by comma-delimited channel names, and on-the-fly filtering. The _User_ filter can be defined through a [config file](config.md). `PDIM` shows the physical dimension from the EDF header, `SR` shows the sample rate, and channel order can also be set through a [config file](config.md#examples).

@@ -1,21 +1,23 @@
 # Luna Scripts
 
-Lunascope can execute **Luna scripts** to automate processing. These docks are hidden by default, but can be
-opened via the View menu, Ctrl/Cmd-8 (console dock), or Ctrl/Cmd-9 (output dock).
+Lunascope can execute **Luna scripts** to automate processing. The
+console and output docks are hidden by default, but can be opened from
+the View menu or with `Ctrl/Cmd-8` and `Ctrl/Cmd-9`.
 
-## A simple script
+## Script console
 
-To apply the `HEADERS` and `STATS` command, i.e. similar to running
+To apply `HEADERS` and `STATS`, similar to running
 
 ```
 luna s.lst 1 -o out.db -s ' HEADERS & STATS sig=C3,C4 '
 ```
-enter the script in the console (which can also save and load scripts):
+enter the script in the console:
 
 ![Script Example](imgs/luna-script.png)
 
-and then press _Execute_. This will send any output to the output dock. For example, this table is
-the same as running the following at the command line:
+## Output dock
+
+After _Execute_, the returned tables appear in the output dock. For example, this table corresponds to:
 
 ```
 destrat out.db +STATS -r CH
@@ -23,22 +25,46 @@ destrat out.db +STATS -r CH
 
 ![Script Output](imgs/luna-script-out.png)
 
-You can transpose the table for easier viewing, as needed.
+Tables can be transposed if that makes them easier to read.
 
 ![Script Output 2](imgs/luna-script-out2.png)
 
 ### Exporting tables
 
-You can select the whole table (click top left), or individual rows, columns or cells and either _Copy_ those
-data to the clipboard or save them as a TSV file, by right-clicking in the table.  The exported data will always
-contain column headers.  If a filter is currently applied, only filtered rows will be exported.
+Selected cells can be copied and the current table can be saved as TSV. Exported tables always include column headers, and if a filter is active only the filtered rows are exported. The _Outputs_ dock can also save, load, or clear the full set of returned tables, not just the current one.
+
+### Saving and loading output sets
+
+Lunascope can save the full set of outputs in two formats:
+
+ - `.pkl` : a saved output bundle containing the output tables and table tree
+ - `.zip` : a zip archive containing one `.tsv` file per table plus a `_manifest.tsv`
+
+It can also load:
+
+ - `.pkl` output bundles
+
+ - `.zip` output bundles
+
+ - Luna `.db` databases
+
+Loading a Luna `.db` is useful when results were generated outside the current Lunascope session, for example by command-line Luna.
+
+Hovering over output-table column headers will also try to show the Luna variable description for that field.
+
+<!-- TODO: add screenshot of the output dock save/load/clear controls -->
+Placeholder image: [imgs/output-dock-save-load.png](imgs/output-dock-save-load.png)
+
+<!-- TODO: add screenshot of loading a Luna .db into the Outputs dock -->
+Placeholder image: [imgs/output-load-db.png](imgs/output-load-db.png)
 
 
 ---
 
 ## A more involved case
 
-Here we have an example script to detect NREM spindles and slow oscillations, which takes optional arguments, and adds annotations (reflecting spindle/SO events):
+Here is a script that detects NREM spindles and slow oscillations. It
+takes optional arguments and adds annotations for the detected events:
 
 ![Script 2](imgs/luna-script-2.png)
 
@@ -46,7 +72,7 @@ If we load this script and just press _Execute_, we'll get an error message:
 
 ![Script Error](imgs/luna-script-2-err.png){ width="50%" } 
 
-This correctly notes that `${s}` (the signals to use) is required but has not been specified. These need to be specified in the [parameter](parameters.md) dock. Ignore the top examples in this case, but note how variables `${s}`, `${r}` (the reference channels), and `${frqs}` (the spindle frequencies) have been specified:
+This correctly notes that `${s}` is required but has not been specified. These values belong in the [Parameters](parameters.md) dock. In this example `${s}`, `${r}` (reference channels), and `${frqs}` (spindle frequencies) are defined there:
 
 ![Script Error](imgs/param-dock2.png){ width="50%" } 
 
@@ -56,36 +82,29 @@ luna s.lst 1 -o out.db s=C3 r=A1,A2 frqs=11,15 < spindle.txt
 ```
 (assuming the Luna script is called `spindle.txt`).
 
-Now it should run properly (assuming channels `C3`, `A1`, and `A2` exist, and there are NREM annotations) and give output as follows: here it shows spindle metrics for fast and slow spindles (`F` = 15 and 11 Hz) for two channels (`s=C3,C4`, rather than a single channel):
+Now it should run properly, assuming the channels exist and NREM annotations are present. Here it shows spindle metrics for fast and slow spindles (`F` = 15 and 11 Hz) across two channels:
 
 ![Script Output](imgs/luna-script-2-out.png)
 
-Inspecting the script, we see that it will generate annotations (`SP11` and `SP15`, as well as `SO`) marking where detected spindles occur. After running the script, these will be attached to the in-memory instance and can be viewed, or used in any subsequent Luna command, until _Refresh_ is hit or a new EDF is loaded:
+The script also generates annotations (`SP11`, `SP15`, and `SO`) marking where detected events occur. These remain attached to the current in-memory record until _Refresh_ is used or a new EDF is loaded:
 
 ![Script Variant](imgs/luna-script-2-b.png){ width="60%"}
 
-Selecting the two EEG channels -- and applying sigma-filtering on one of them -- as well as the relevant annotations, you can explore the detected NREM transient events in this dataset:
+With the relevant EEG channels and annotations selected, those detected
+events can then be explored in the viewer:
 
 ![Script Viewer](imgs/luna-script-2-view.png)
 
 
 ## Batch processing
 
-Although Lunascope is centrally designed around viewing a single
-recording, it can sometimes be convenient to apply a script to
-multiple recordings grouped as a sample-list.
+Lunascope is built primarily for interactive review of a single record, but it can also apply a script across the current sample list.
 
-___Importantly, note that for non-trivial batch processing
-applications it is strongly suggested that you use command-line Luna,
-specifically designed for batch processing, not the Lunascope
-interactive viewer, for a more flexible, powerful, reproducible and
-robust pipeline.___
+___For non-trivial batch processing, use command-line Luna instead of
+the interactive viewer.___
 
 
-A batch job in Lunascope applies the current Luna script to all
-samples in the current sample list, iteratively. For example, consider
-this script, which enumerates the number of NREM and REM obstructive
-apnea events, respectively:
+A batch job in Lunascope applies the current Luna script to all samples in the current sample list, iteratively. For example, this script enumerates the number of NREM and REM obstructive apnea events:
 
 ```
 TAG STG/NREM
@@ -97,28 +116,16 @@ MASK ifnot=R
 ANNOTS annot=Obstructive_Apnea
 ```
 
-Instead of clicking the _Execute_ button (which applies the script to the current state
-of the attached EDF), use the top menu _Project / Evaluate (project)_:
+Instead of _Execute_, use _Project / Evaluate (project)_:
 
 ![Batch jobs](imgs/luna-script-batch-2.png){ width="50%" }
 
-This loads each EDF sequentially, runs the job, and saves any
-output. Only after all jobs are finished will the console update with
-the output:
+This loads each EDF sequentially, runs the job, and collates the output. Progress is shown in the status bar and the console updates as records are processed:
 
 ![Batch jobs](imgs/luna-script-batch-1.png){ width="70%" }
 
-When finished, the viewer will have the final record in the sample
-list loaded.
-
-The outputs are collated and then displayed together.
-An `ID` column (based on the sample list ID) is added to each
-table to indicate to which individual those data belong:
+When finished, the final record is detached and the outputs are collated and displayed together, with an `ID` column added to each table so you can see which individual produced which row:
 
 ![Batch results](imgs/luna-script-batch-3.png){ width="100%" }
 
-Note that Lunascope does not parallelize jobs and will freeze the GUI
-while jobs run.  As such, it can be difficult to see the progress of
-long-running jobs.  Also, it will not automatically save all
-outputs. As noted, for these and other reasons, Lunascope is not the
-right tool for non-trivial batch jobs.
+Lunascope still processes project jobs sequentially rather than in parallel, but the GUI remains responsive while they run. You can request cancellation with _Project / Evaluate (project)_ again or press `Ctrl/Cmd-.`; the current record is allowed to finish cleanly before the run stops. Lunascope also does not automatically save all outputs, so this is still best kept for light project-level jobs rather than serious batch pipelines.

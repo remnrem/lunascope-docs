@@ -1,30 +1,40 @@
 # Overview
 
-Lunascope offers a modular interface composed of multiple synchronized panels ("docks").
+Lunascope is organized as a set of synchronized panels, or docks.
 
 ![Overview](imgs/p1b.png)
 
-The central signal viewer will always be present. All other docks can
-be hidden or shown, either by the top menu, clicking the 'close' icons
-on each dock, by keyboard shortcuts, or by a [config](config.md) file.
+The central signal viewer is always present. Other docks can be shown,
+hidden, detached, or repositioned to match your workflow, whether from
+the menu, by shortcut, or through a [config](config.md) file. There
+are also floating docks for [multiday actigraphy](actig.md),
+[NSRR/Moonbeam access](moonbeam.md), and the multi-tab
+[Explorer](explorer.md).
 
-Each dock (Parameters, Signals, Annotations, Spectrograms, Hypnograms, etc.)
-can be detached or re-positioned to match your workflow.
+Lunascope caches the layout of all docks when closing and re-opening.
+To quickly return to the default layout, press `C-0` twice.
 
 ## Keyboard shortcuts
 
-On Windows and Linux, `C` implies the _Control_ key; on macOS, `C` implies the _Command_ key.
+On Windows and Linux, `C` means the _Control_ key; on macOS, it means _Command_.
 
 | Dock | Shortcut |
 |---|---|
-| __Hide/show all docks__ | `C-0` |
-| Sample lists | `C-1` |
-| Parameters | `C-2` |
-| Signals | `C-3` |
-| Annotation classes | `C-4` |
-| Annotation events | `C-5` |
-| Spectrograms | `C-6` |
-| Hypnograms & automated staging | `C-7` |
-| Console | `C-8` |
-| Output tables | `C-9` |
-| Masks | `C--` |
+| __Signals-only / default layout__ | `C-0` |
+| [Sample lists](loading.md) | `C-1` |
+| [Parameters](parameters.md) | `C-2` |
+| [Signals](signals.md) | `C-3` |
+| [Annotation classes](annotations.md) | `C-4` |
+| [Annotation events](annotations.md) | `C-5` |
+| [Spectrograms](spectrograms.md) | `C-6` |
+| [Hypnograms / actigraphy](hypnograms.md) * | `C-7` |
+| [Luna script console](scripts.md) | `C-8` |
+| [Output tables](scripts.md) | `C-9` |
+| [Masks](masks.md) | `C--` |
+| [Command help](commands.md) | `C-/` |
+| [Moonbeam](moonbeam.md) | `C-M` |
+| [Explorer](explorer.md) | `C-E` |
+
+`*` when multiday mode is detected, `C-7` switches from the hypnogram dock to the actigraphy dock.
+
+`C-0` toggles between the normal multi-dock workspace and a stripped-down signals-only layout for focused viewing.

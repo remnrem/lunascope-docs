@@ -6,32 +6,36 @@ marks.
 
 ## Annotation classes
 
-The Annotations dock lets you toggle event types and view time-stamped instances in the main viewing window.
+The Annotations dock controls which event types are shown in the main
+viewer.
 
 ![Annotations Dock](imgs/annots-dock.png){ width="60%" }
 
-As for the Signals dock:
+As in the Signals dock, you can:
 
- - you can toggle between selecting _all_ or _none_ by clicking the top button (_Select all/none_)
+ - toggle between selecting _all_ or _none_
 
- - you can filter rows by typing a comma-delimited list of annotations
+ - filter rows by typing a comma-delimited list of annotations
 
-When selecting an annotation class, all its instances are added to the _Instances_ dock table, described below.
+When an annotation class is selected, its instances appear in the
+_Instances_ dock.
 
 ## Instances
 
-For selected annotation classes, the _Instances_ dock lists all instances, sorted by
-clock-time. As well as clock-time, the table shows the event onset in
-seconds past the EDF start time, and the duration of the event (also
-in seconds).
+For selected annotation classes, the _Instances_ dock lists all
+instances in clock-time order, along with event onset and duration in
+seconds.
 
 ![Instances Dock](imgs/instances-dock.png){ width="60%" }
 
-If you select an event by clicking on it, the main viewer will move to
-that position in the recording: this provides an easy way to navigate
-through the recording, e.g. to view detected spindles, if a spindle
-annotation has been added.
+Selecting an event moves the main viewer to that point in the record, so
+the table doubles as a navigation tool.
 
 You can also filter which instances are displayed in this table (based
 on annotation class) by typing a comma-delimited list of terms, as in
 the example above that restricts displayed rows to wake (W) and artifact events.
+
+If the source annotations carry per-event metadata, Lunascope also shows
+that information in a `meta` column. This preserves key/value text from
+the underlying annotation file, making it easier to inspect event-level
+details without leaving the GUI.

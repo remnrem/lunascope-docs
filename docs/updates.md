@@ -2,9 +2,9 @@
 
 ## Updates
 
-### v0.9.9
+### v1.5.2
 
-Major additions in the current 0.9.9 line include:
+Major additions in the current 1.5.2 line include:
 
  - floating multiday Actigraphy, Moonbeam, Explorer, and Annotator docks
  - multiday actigraphy mode for recordings that span multiple days

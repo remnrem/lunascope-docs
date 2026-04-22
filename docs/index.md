@@ -1,4 +1,4 @@
-# Lunascope v0.9.9
+# Lunascope v1.5.2
 
 Lunascope is a desktop interface to the [Luna suite](https://zzz.nyspi.org/luna): an interactive viewer, scripting front end, and packaged way to work with the underlying Luna library from a single application.
 
@@ -28,9 +28,8 @@ In practice, that means Lunascope is not only for browsing signals. It can also 
 
 ## Development status
 
-Lunascope is approaching a `1.0` release, but `v0.9.9` should still be
-treated as pre-`1.0` software. Some features are newer than others,
-and there are still a few [known issues](updates.md#known-issues).
+Lunascope `v1.5.2` is the current documented release. Some features are
+newer than others, and there are still a few [known issues](updates.md#known-issues).
 
 Feedback on bugs, confusing workflows, missing documentation, and
 release-blocking rough edges is useful at this stage.

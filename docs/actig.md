@@ -10,9 +10,9 @@ message):
 
 The clock times in the main window now also indicate the day
 (e.g. above, `3-02:47` indicates early morning of the 3rd day). The
-main hypnogram view is relaced with a simpler _sleep period/wake
+main hypnogram view is replaced with a simpler _sleep period/wake
 period_ annotation (purple and green respectively, based on the
-annotations `SP` and `WP`, if available) and days are demarked with
+annotations `SP` and `WP`, if available) and days are demarcated with
 lines and noon/midnight markings.
 
 ## Main controls
@@ -60,5 +60,8 @@ display is recalculated.  More metrics can be derived by Luna's
 [`ACTIG`](https://zzz.nyspi.org/luna/ref/actigraphy/#actig) command.
 Also see the [`DAYS`](https://zzz.nyspi.org/luna/ref/actigraphy/#days)
 command and the `dhms` option for [`MASK`](https://zzz.nyspi.org/luna/ref/masks/#mask)
-to faciliate manipulating multi-day recordings.
+to facilitate manipulating multi-day recordings.
 
+---
+
+Previous: [Moonbeam](moonbeam.md) | Next: [Explorer](explorer.md)

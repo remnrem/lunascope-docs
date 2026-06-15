@@ -18,7 +18,7 @@ nav:
   - Home: index.md
   - Installation: install.md
   - Overview: overview.md
-  - Loading Data: loading.md
+  - Loading/Saving Data: loading.md
   - Viewer: signal-viewer.md
   - Signals: signals.md
   - Annotations: annotations.md

@@ -6,7 +6,7 @@ accessible individuals, downloading files into a local cache, and
 populating a Lunascope sample list from those cached files. Open it
 from the _View_ menu or with `Ctrl/Cmd-M`.
 
-![imgs/v2/moonbeam1.png](imgs/v2/moonbeam1.png)
+![imgs/n/moonbeam1.png](imgs/n/moonbeam.png)
 
 ## Connecting and cache
 
@@ -35,3 +35,6 @@ its study browser while offline, including the study tree, the
 individual table, and S-List population from cached files. Downloading
 new files and refreshing the manifest still require a live connection.
 
+---
+
+Previous: [Luna Scripts](scripts.md) | Next: [Actigraphy](actig.md)

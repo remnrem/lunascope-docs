@@ -1,10 +1,10 @@
 # Luna Scripts
 
-Lunascope can execute **Luna scripts** to automate processing. The
+Lunascope can execute [**Luna scripts**](https://zzz.nyspi.org/luna/luna/args/) for multi-step, automated processing. The
 console and output docks are hidden by default, but can be opened from
 the View menu or with `Ctrl/Cmd-8` and `Ctrl/Cmd-9`.
 
-## Script console
+## Script & console dock
 
 To apply `HEADERS` and `STATS`, similar to running
 
@@ -15,48 +15,44 @@ enter the script in the console:
 
 ![Script Example](imgs/luna-script.png)
 
+The lower half of this window is for input, and any log output is recorded in the top half after the script is run.
+
 ## Output dock
 
-After _Execute_, the returned tables appear in the output dock. For example, this table corresponds to:
+After _Execute_, the returned tables appear in the Outputs dock. For example, this table corresponds to:
 
 ```
 destrat out.db +STATS -r CH
 ```
 
-![Script Output](imgs/luna-script-out.png)
+![Script Output](imgs/n/output-dock1.png)
 
-Tables can be transposed if that makes them easier to read.
+Tables can be transposed if that makes them easier to read.  Hovering
+over output-table column headers will also try to show the Luna
+variable description for that field.
 
-![Script Output 2](imgs/luna-script-out2.png)
+
+![Script Output](imgs/n/output-dock2.png)
 
 ### Exporting tables
 
 Selected cells can be copied and the current table can be saved as TSV. Exported tables always include column headers, and if a filter is active only the filtered rows are exported. The _Outputs_ dock can also save, load, or clear the full set of returned tables, not just the current one.
 
-### Saving and loading output sets
-
-Lunascope can save the full set of outputs in two formats:
+Lunascope can also save the full set of outputs in two formats:
 
  - `.pkl` : a saved output bundle containing the output tables and table tree
  - `.zip` : a zip archive containing one `.tsv` file per table plus a `_manifest.tsv`
 
-It can also load:
+It can also load previously saved outputs:
 
  - `.pkl` output bundles
 
  - `.zip` output bundles
 
- - Luna `.db` databases
+ - Luna `.db` databases (i.e. output created by Luna)
 
-Loading a Luna `.db` is useful when results were generated outside the current Lunascope session, for example by command-line Luna.
-
-Hovering over output-table column headers will also try to show the Luna variable description for that field.
-
-<!-- TODO: add screenshot of the output dock save/load/clear controls -->
-Placeholder image: [imgs/output-dock-save-load.png](imgs/output-dock-save-load.png)
-
-<!-- TODO: add screenshot of loading a Luna .db into the Outputs dock -->
-Placeholder image: [imgs/output-load-db.png](imgs/output-load-db.png)
+Loading a Luna `.db` is useful when results were generated outside the current Lunascope session, for example by command-line Luna.  Note that
+this interactive table browser is _not_ necessarily designed for very large outputs (e.g., thousands of variables/strata on hundreds or thousands of recordings).
 
 
 ---
@@ -100,11 +96,11 @@ events can then be explored in the viewer:
 
 Lunascope is built primarily for interactive review of a single record, but it can also apply a script across the current sample list.
 
-___For non-trivial batch processing, use command-line Luna instead of
-the interactive viewer.___
+_For non-trivial batch processing, it is typically better to use command-line Luna instead of the interactive viewer._
 
-
-A batch job in Lunascope applies the current Luna script to all samples in the current sample list, iteratively. For example, this script enumerates the number of NREM and REM obstructive apnea events:
+A batch job in Lunascope applies the current Luna script to all
+samples in the current sample list, iteratively. For example, this
+script enumerates the number of NREM and REM obstructive apnea events:
 
 ```
 TAG STG/NREM
@@ -116,11 +112,11 @@ MASK ifnot=R
 ANNOTS annot=Obstructive_Apnea
 ```
 
-Instead of _Execute_, use _Project / Evaluate (project)_:
+Instead of _Execute_ (`C-RET`), use _Project / Evaluate (project)_ (or `C-Shift-RET`):
 
-![Batch jobs](imgs/luna-script-batch-2.png){ width="50%" }
+![Batch jobs](imgs/n/menu1.png){ width="40%" }
 
-This loads each EDF sequentially, runs the job, and collates the output. Progress is shown in the status bar and the console updates as records are processed:
+This opens a small configuration dialog where you choose the number of worker processes, then loads records across those workers, runs the job, and collates the output. Progress is shown in the status bar and the console updates as records finish:
 
 ![Batch jobs](imgs/luna-script-batch-1.png){ width="70%" }
 
@@ -128,4 +124,8 @@ When finished, the final record is detached and the outputs are collated and dis
 
 ![Batch results](imgs/luna-script-batch-3.png){ width="100%" }
 
-Lunascope still processes project jobs sequentially rather than in parallel, but the GUI remains responsive while they run. You can request cancellation with _Project / Evaluate (project)_ again or press `Ctrl/Cmd-.`; the current record is allowed to finish cleanly before the run stops. Lunascope also does not automatically save all outputs, so this is still best kept for light project-level jobs rather than serious batch pipelines.
+Lunascope processes project jobs in parallel worker processes when more than one worker is selected, and the GUI remains responsive while they run. You can request cancellation with _Project / Evaluate (project)_ again or press `Ctrl/Cmd-.`; queued records are stopped while any in-progress worker slice is allowed to finish or shut down cleanly. Lunascope also does not automatically save all outputs, so this is still best kept for light project-level jobs rather than serious batch pipelines.
+
+---
+
+Previous: [Parameters](parameters.md) | Next: [Moonbeam](moonbeam.md)

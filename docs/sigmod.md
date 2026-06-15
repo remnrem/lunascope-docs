@@ -9,14 +9,14 @@ layer rather than a separate plot.
 For example, here we set the top EEG trace ( which is also narrowband
 filtered to the 0.5 - 1 Hz range ) to reflect the phase of the same
 channel also filtered to the same 0.5 - 1 Hz interval, using a
-red-white-blue palette.  Below is an ECG trace, with is colored with
+red-white-blue palette.  Below is an ECG trace, which is colored with
 respect to the amplitude of that same ECG between the 8-25 Hz range,
-with a different pallete, effectively visually highlighting the R peaks:
+with a different palette, effectively visually highlighting the R peaks:
 
 ![imgs/v2/sigmod-1.png](imgs/v2/sigmod-1.png)
 
 A _modulation_ is based on one signal but can be applied to other
-signals, or differently filtered versions of the same singal: for
+signals, or differently filtered versions of the same signal: for
 example, here is the same modulation but applied to the 0.3 - 35 Hz
 filtered EEG trace - for example, this may provide visual indicators
 of spindle-slow oscillation coupling:
@@ -62,4 +62,6 @@ The conceptual setup is:
 For the full syntax, built-in palette reference, and examples, see the
 [Configuration](config.md) page.
 
+---
 
+Previous: [Configuration](config.md) | Next: [Command help](commands.md)

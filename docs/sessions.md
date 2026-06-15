@@ -29,3 +29,7 @@ also be restored directly from the command line:
 ```bash
 lunascope prior-session.lss
 ```
+
+---
+
+Previous: [Command help](commands.md) | Next: [Updates/known issues](updates.md)

@@ -98,6 +98,7 @@ options currently used by Lunascope:
 |---|---|---|
 | `show-lines` | `T` / `F` | Show `y=0` reference lines for all channels |
 | `line-weight` | numeric | Main-viewer line width |
+| `pp-style` | `T` / `F` | Use percentile-style display for posterior-probability channels |
 | `project-dock` | `T` / `F` | Show Project dock |
 | `settings-dock` | `T` / `F` | Show Settings dock |
 | `signal-dock` | `T` / `F` | Show Signals dock |
@@ -112,6 +113,7 @@ options currently used by Lunascope:
 | `na-token` | string | Token used for missing cells when empties are not allowed |
 | `pops-path` | path | POPS resource folder |
 | `pops-model` | string | POPS model label, e.g. `s2` |
+| `pops-coda` | `T` / `F` | Enable POPS CODA behavior when configured |
 | `day-anchor` | `0`-`23` | Default day anchor hour for multiday/actigraphy workflows |
 
 Note the actual keys are `annots-dock` and `outputs-dock`.
@@ -334,3 +336,7 @@ AF4 col=#fe9c25
 ```
 
 ![HD EEG 5](imgs/luna-hd-5.png)
+
+---
+
+Previous: [Explorer](explorer.md) | Next: [Signal modulation](sigmod.md)

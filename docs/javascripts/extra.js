@@ -13,7 +13,7 @@ function installLunaHeaderLinks() {
     '<span class="luna-site-links__sep">|</span>',
     '<a class="luna-site-links__subtle" href="https://zzz.nyspi.org/luna-walkthrough">Walkthrough</a>',
     '<span class="luna-site-links__sep">|</span>',
-    '<a class="luna-site-links__subtle" href="https://github.com/remnrem/luna-base">GitHub</a>',
+    '<a class="luna-site-links__subtle" href="https://github.com/Lorcan7274/lunascope">GitHub</a>',
     "</span>",
   ].join("");
 

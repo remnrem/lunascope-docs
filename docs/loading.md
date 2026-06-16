@@ -14,8 +14,8 @@ The Project dock supports several ways of loading EDF and annotation data:
 
 The ___Project___ menu also includes:
 
-  - ___Attach Annotation Folder to S-List___ scans a folder for annotation files and appends matching files onto existing sample-list rows by ID. This is useful when EDFs have already been loaded and annotations arrive later as a separate batch.
- - ___Save S-List___ writes the current sample list to disk, including any internal rows or attached annotation paths added during the current session.
+  - ___Attach Annotation Folder to S-List___ scans a folder for annotation files and appends matching files onto existing sample-list rows by ID. This is useful when EDFs have already been loaded and annotations arrive as a separate batch or are computed later.
+ - ___Save S-List___ writes the current sample list to disk, including any attached annotation paths added during the current session.
  - ___New Empty EDF___  creates an in-memory blank EDF with a chosen ID, start time, start date, record size, and number of records. It is useful for building or testing annotation-only workflows without starting from an existing EDF file.
 
 ## Tutorial data
@@ -23,10 +23,9 @@ The ___Project___ menu also includes:
 The ___Project___ menu also includes ___Download Tutorial...___. This
 downloads the Luna tutorial dataset as a `.zip`, extracts it into a
 folder you choose, and then tries to load the included `s.lst` sample
-list automatically.
-
-This is a convenient way to get a known working example project into
-Lunascope without building your own sample list first.
+list automatically. This is a convenient way to get a known working
+example project into Lunascope without building your own sample list
+first.
 
 If `tutorial.zip` or an extracted `tutorial/` folder already exists in
 the selected location, Lunascope asks before overwriting them. The
@@ -35,7 +34,7 @@ progress.
 
 ## Meta-data
 
-The Sample list table can be augmented with key _metadata_ about each
+The Sample List table can be augmented with key _metadata_ about each
 observation (e.g. diagnostic status, age, sex, etc), which is
 displayed when that observation is selected.  Metadata does not play
 any other role within Lunascope/Luna, i.e. beyond simply being displayed

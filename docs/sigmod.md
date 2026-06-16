@@ -1,4 +1,4 @@
-# Signal modulation
+# Signal Modulation
 
 _Signal modulation_, or `sigmod`, is an advanced, experimental
 render-only display feature that adds a color-coded overlay to a

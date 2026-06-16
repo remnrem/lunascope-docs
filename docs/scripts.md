@@ -13,13 +13,15 @@ luna s.lst 1 -o out.db -s ' HEADERS & STATS sig=C3,C4 '
 ```
 enter the script in the console:
 
-![Script Example](imgs/luna-script.png)
+![Script Example](imgs/n2/console.png)
 
-The lower half of this window is for input, and any log output is recorded in the top half after the script is run.
+The lower half of this window is for input, and any log output is recorded in the top half after the script is run.  You can either run ("evaluate")
+the script on the attached EDF based on its current state (i.e. where masks or other transformations may already have been applied) or you can ensure
+it first refreshes (reloads the EDF and annotations anew) before running the script (similar to the command-line Luna's behavior). 
 
 ## Output dock
 
-After _Execute_, the returned tables appear in the Outputs dock. For example, this table corresponds to:
+After _Evaluate_, the returned tables appear in the _Outputs dock_. For example, this table corresponds to:
 
 ```
 destrat out.db +STATS -r CH
@@ -64,7 +66,7 @@ takes optional arguments and adds annotations for the detected events:
 
 ![Script 2](imgs/luna-script-2.png)
 
-If we load this script and just press _Execute_, we'll get an error message:
+If we load this script and just press _Evaluate_, we'll get an error message:
 
 ![Script Error](imgs/luna-script-2-err.png){ width="50%" } 
 
@@ -112,11 +114,16 @@ MASK ifnot=R
 ANNOTS annot=Obstructive_Apnea
 ```
 
-Instead of _Execute_ (`C-RET`), use _Project / Evaluate (project)_ (or `C-Shift-RET`):
+Instead of _Evaluate_ (`C-RET`), use _Project / Evaluate (project)_ (or `C-Shift-RET`):
 
-![Batch jobs](imgs/n/menu1.png){ width="40%" }
+![Batch jobs](imgs/n2/menu1.png){ width="40%" }
 
-This opens a small configuration dialog where you choose the number of worker processes, then loads records across those workers, runs the job, and collates the output. Progress is shown in the status bar and the console updates as records finish:
+This opens a small configuration dialog where you choose the number of worker processes, then loads records across those workers, runs the job, and collates the output.
+
+![Batch jobs](imgs/n2/eval-cores.png){ width="45%" }
+
+
+Progress is shown in the status bar and the console updates as records finish:
 
 ![Batch jobs](imgs/luna-script-batch-1.png){ width="70%" }
 

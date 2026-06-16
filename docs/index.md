@@ -22,12 +22,12 @@ GUI.
 | [Signal Viewer](signal-viewer.md) | Main viewer for synchronized time navigation across channels. | ![Viewer example](imgs/n/signals-main2.png){width="100%"} |
 | [Signals](signals.md) | Signal selection and viewing options | ![Signals dock](imgs/n/signals-dock.png){width="50%"} |
 | [Annotations](annotations.md) | Toggle annotation types and view event instances | ![Annotations](imgs/n/annot-dock.png){width="60%"} |
-| [Time-frequency](spectrograms.md)  | Time-frequency views and spectral summaries | ![Time-frequency](imgs/n/spectrogram-dock.png){width="100%"} |
+| [Time-frequency](spectrograms.md)  | Time-frequency views and spectral summaries | ![Time-frequency](imgs/n2/welch1.png){width="100%"} |
 | [Hypnograms](hypnograms.md) | Automatic and manual staging, including SOAP and POPS | ![Hypnogram](imgs/n/hypno-dock-hypno.png){width="100%"} |
 | [Explorer](explorer.md) | Cohort and record-level visual summaries for annotations, staging, signals, and outputs | ![img](imgs/v2/explorer-annots.png) |
 | [Multiday Recordings](actig.md) | Working with multiday actigraphy displays | ![img](imgs/v2/actig-2.png) |
 | [Moonbeam](moonbeam.md) | Browsing and downloading NSRR data | ![img](imgs/n/moonbeam.png) |
-| [Luna Scripts](scripts.md) | Examples of scripting workflows in Lunascope | ![Luna script output](imgs/n/console.png){width="100%"} |
+| [Luna Scripts](scripts.md) | Examples of scripting workflows in Lunascope | ![Luna script output](imgs/n2/console.png){width="100%"} |
 | [Command help](commands.md) | Built-in Luna command reference for commands, parameters, and outputs | ![img](imgs/v2/help-dock.png){ width="80%" } |
 | [Parameters](parameters.md) | Details of parameter configuration and editing through the parameter dock | ![Parameters](imgs/n/param-dock1.png){width="60%"} |
 | [Configuration](config.md) | Specifying channel ordering, coloring and other properties | ![HD EEG](imgs/luna-hd-1.png){width="100%"} |

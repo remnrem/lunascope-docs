@@ -25,7 +25,7 @@ project-level evaluation; and saving or restoring [sessions](sessions.md).
 It also includes shortcuts for downloading POPS resources and the
 tutorial dataset.
 
-![Project menu](imgs/n/menu1.png){ width=35% }
+![Project menu](imgs/n2/menu1.png){ width=35% }
 
 The ___Views___ menu shows or hides individual docks, indicates which
 ones are currently open, and lists the associated keyboard shortcuts.
@@ -34,11 +34,11 @@ It also provides access to [Moonbeam](moonbeam.md),
 [command help](commands.md) dock, a global show/hide toggle for all
 docks, and fullscreen mode.
 
-![View menu](imgs/n/menu2.png){ width=35% }
+![View menu](imgs/n2/menu2.png){ width=35% }
 
 ## Keyboard shortcuts
 
-On Windows and Linux, `C` means the _Control_ key; on macOS, it means _Command_.
+On Windows and Linux, `C` means the _Control_ key; on macOS, it means _Command_.  The `Alt` key on macOS is the _Option_ key.
 
 | Dock | Shortcut |
 |---|---|
@@ -69,8 +69,9 @@ On Windows and Linux, `C` means the _Control_ key; on macOS, it means _Command_.
 | | |
 | __Other functions__ | |
 | Refresh (reLoad) attached EDF | `C-L` |
-| Execute console [Luna script](scripts.md) for attached EDF | `C-RET` |
-| Execute console [Luna script](scripts.md) across all EDFs | `C-Shift-RET` |
+| Evaluate console [Luna script](scripts.md) for the attached EDF | `C-RET` |
+| Refresh and evaluate console [Luna script](scripts.md) for the attached EDF | `C-Alt-RET` |
+| Evaluate console [Luna script](scripts.md) _across all_ EDFs | `C-Shift-RET` |
 
 
 

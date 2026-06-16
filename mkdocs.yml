@@ -31,7 +31,7 @@ nav:
   - Actigraphy: actig.md
   - Explorer: explorer.md
   - Configuration: config.md
-  - Signal modulation: sigmod.md
+  - Signal Modulation: sigmod.md
   - Command help: commands.md
   - Sessions: sessions.md
   - Updates/known issues: updates.md

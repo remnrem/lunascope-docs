@@ -1,7 +1,7 @@
-# Lunascope v1.6.4
+# Lunascope v1.7.0
 
 Lunascope is a desktop interface to the [Luna
-suite](https://zzz.nyspi.org/luna): an interactive viewer, scripting
+suite](https://zzz-luna.org/luna): an interactive viewer, scripting
 front end, and packaged way to work with the underlying Luna library.
 
 This means that Lunascope is not only for browsing signals: it
@@ -34,7 +34,7 @@ GUI.
 
 ## Development status
 
-Lunascope `v1.6.4` is the current documented release. Some features are
+Lunascope `v1.7.0` is the current documented release. Some features are
 newer than others, and there are still a few [known issues](updates.md#known-issues).
 
 Feedback on bugs, confusing workflows, missing documentation, and
@@ -45,7 +45,7 @@ release-blocking rough edges is useful at this stage.
 Lunascope was created by Shaun Purcell and is developed and maintained
 by Lorcan Purcell and Tejas Karkera, with Luna development supported
 by inputs from [many
-others](https://zzz.nyspi.org/luna/index.html#support).
+others](https://zzz-luna.org/luna/index.html#support).
 
 Questions: [luna.remnrem@gmail.com](mailto:luna.remnrem@gmail.com)
 

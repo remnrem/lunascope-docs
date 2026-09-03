@@ -12,7 +12,7 @@ are also floating docks for [multiday actigraphy](actig.md),
 [Explorer](explorer.md).
 
 Lunascope caches the layout of all docks when closing and re-opening.
-To quickly return to the default layout, press `C-0` twice.
+To quickly return to the default layout, press `C-R`.
 
 ## Main menu
 
@@ -40,38 +40,27 @@ docks, and fullscreen mode.
 
 On Windows and Linux, `C` means the _Control_ key; on macOS, it means _Command_.  The `Alt` key on macOS is the _Option_ key.
 
-| Dock | Shortcut |
-|---|---|
-| Reset layout | `C-R` |
-| [Sample lists](loading.md) | `C-1` |
-| [Parameters](parameters.md) | `C-2` |
-| [Signals](signals.md) | `C-3` |
-| [Annotation classes](annotations.md) | `C-4` |
-| [Annotation events](annotations.md) | `C-5` |
-| [Spectrograms](spectrograms.md) | `C-6` |
-| [Hypnograms / actigraphy](hypnograms.md) * | `C-7` |
-| [Luna script console](scripts.md) | `C-8` |
-| [Output tables](scripts.md) | `C-9` |
-| [Masks](masks.md) | `C--` |
-| [Command help](commands.md) | `C-/` |
-| Toggle signals-only / all-docks | `C-0` |
-| | |
-| __Special modules__ | |
-| Toggle [Explorer](explorer.md) on/off | `C-E` |
-| Toggle [Annotator](annotations.md) on/off | `C-Shift-A` |
-| Toggle [Moonbeam](moonbeam.md) on/off | `C-M` |
-| Cycle modules | <code>C-`</code> |
-| | |
-| __Viewing options__ | |
-| Increase UI font size | `C-Shift-=` |
-| Decrease UI font size | `C-Shift--` |
-| Reset UI font size | `C-Shift-R` |
-| | |
-| __Other functions__ | |
-| Refresh (reLoad) attached EDF | `C-L` |
-| Evaluate console [Luna script](scripts.md) for the attached EDF | `C-RET` |
-| Refresh and evaluate console [Luna script](scripts.md) for the attached EDF | `C-Alt-RET` |
-| Evaluate console [Luna script](scripts.md) _across all_ EDFs | `C-Shift-RET` |
+| Primary docks | | | |
+|---|---|---|---|
+| [Sample lists](loading.md) | `C-1` | [Hypnograms / actigraphy](hypnograms.md) * | `C-7` |
+| [Parameters](parameters.md) | `C-2` | [Luna script console](scripts.md) | `C-8` |
+| [Signals](signals.md) | `C-3` | [Output tables](scripts.md) | `C-9` |
+| [Annotation classes](annotations.md) | `C-4` | [Masks](masks.md) | `C--` |
+| [Annotation events](annotations.md) | `C-5` | [Command help](commands.md) | `C-/` |
+| [Spectrograms](spectrograms.md) | `C-6` | | |
+| Toggle signals-only / all-docks | `C-0` | Reset layout | `C-R` |
+| __Special modules__ | | | |
+| Signal Properties… | `C-P` | Annotation Properties… | `C-A` |
+| Toggle [Explorer](explorer.md) | `C-E` | Toggle [Moonbeam](moonbeam.md) | `C-M` |
+| Toggle [Annotator](annotations.md) | `C-Shift-A` | Toggle Snapshots | `C-Shift-C` |
+| Cycle modules (forward / back) | <code>C-&#96;</code> / <code>C-Shift-&#96;</code> | | |
+| __Viewing options__ | | | |
+| Increase UI font size | `C-Shift-=` | Decrease UI font size | `C-Shift--` |
+| Reset UI font size | `C-Shift-R` | | |
+| __Other functions__ | | | |
+| Refresh (reLoad) attached EDF | `C-L` | Cancel project evaluation | `C-.` |
+| Evaluate console [script](scripts.md) | `C-RET` | Refresh & evaluate console [script](scripts.md) | `C-Alt-RET` |
+| Evaluate console [script](scripts.md) _across all_ EDFs | `C-Shift-RET` | | |
 
 
 

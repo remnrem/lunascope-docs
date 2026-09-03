@@ -39,7 +39,7 @@ updates the _POPS folder_ field to the resolved model directory, and
 remembers that location for later launches.
 
 If you prefer, you can still download and expand the [POPS resource
-.zip](http://zzz.nyspi.org/dist/luna/pops.zip) manually and point the
+.zip](http://zzz-luna.org/dist/luna/pops.zip) manually and point the
 _POPS folder_ box to that location yourself, or use a [configuration
 file](config.md) to set [`pops-path`](config.md#par).
 
@@ -48,7 +48,7 @@ automatic sleep staging and hypnodensity visualization.
 
 Select one or more suitable EEG channels, point Lunascope to the downloaded POPS model files, and run _POPS_. This produces a hypnogram of predicted stages. At present only the single-EEG `s2` model is supported in this convenience interface.
 
-If you select multiple comparable EEG channels, they are treated as equivalent inputs for prediction. In that mode POPS predicts from each candidate channel separately and then uses the most confident prediction for each epoch. See the Luna [POPS prediction](https://zzz.nyspi.org/luna/ref/pops/#pops-prediction) documentation for the underlying details.
+If you select multiple comparable EEG channels, they are treated as equivalent inputs for prediction. In that mode POPS predicts from each candidate channel separately and then uses the most confident prediction for each epoch. See the Luna [POPS prediction](https://zzz-luna.org/luna/ref/pops/#pops-prediction) documentation for the underlying details.
 
 
 You can switch between this view and the hypnodensities with the _Hypnodensity_ option:

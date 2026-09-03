@@ -1,6 +1,6 @@
 # Luna Scripts
 
-Lunascope can execute [**Luna scripts**](https://zzz.nyspi.org/luna/luna/args/) for multi-step, automated processing. The
+Lunascope can execute [**Luna scripts**](https://zzz-luna.org/luna/luna/args/) for multi-step, automated processing. The
 console and output docks are hidden by default, but can be opened from
 the View menu or with `Ctrl/Cmd-8` and `Ctrl/Cmd-9`.
 

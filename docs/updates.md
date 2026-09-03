@@ -2,6 +2,18 @@
 
 ## Updates
 
+### v1.7.0
+
+Highlights since the 1.6.7 line include:
+
+ - new Snapshot dock for recording and replaying named views of a subject (time window, shown channels/annotations, filters, and scaling), with a cached preview image; open with `Ctrl-Shift-C`
+ - new Properties dialogs for bulk-editing signal or annotation-class settings across multiple selected items at once — color, filter, fixed Y-range and Y-reference lines, and trace spacing/scale/labels; open via right-click → _Properties…_, or `Ctrl-P` (signals) / `Ctrl-A` (annotations)
+ - Moonbeam adds BioData Catalyst (BDC) as a second data source alongside NSRR, with its own Seven Bridges endpoint, API token, and project browsing/download workflow
+ - Explorer Assoc (GPA) Build/Analyze workflow reworked
+ - SOAP and POPS plots support the same right-click copy-to-clipboard / save-as (PNG, SVG, PDF) as other plots
+ - Console adds a _Refresh & Eval_ button alongside the existing shortcut
+ - signal/annotation color and ordering logic improved to better preserve the active palette alongside explicit per-item colors
+
 ### v1.6.3
 
 Highlights and smaller changes in the 1.6.3 line include:
@@ -85,9 +97,8 @@ Earlier additions in the 1.5.2 line include:
 Current known issues:
 
  - outside Render mode, IIR filters can still show edge effects because there is no padding
- - attached annotation paths can occasionally persist longer than intended across some append or project-eval workflows, which may lead to incorrect file lookups on a later individual or repeated IDs in batch-written annotation exports
- - in Explorer Waveforms, annotation-linked signal or channel menus can occasionally remain stale after commands that add new derived annotations; switching tabs or refreshing the relevant view repopulates the menus
- - write-based Luna commands can behave slightly differently inside a long-lived Lunascope session than in a fresh command-line invocation, because the attached in-memory EDF state persists across commands
+ - in Explorer Waveforms, annotation-linked signal or channel menus can occasionally remain stale — this only happens after a command that adds a new derived annotation without also producing an output table, since the menus otherwise auto-refresh on tab switch, on record attach, and whenever a command's results update; switching tabs or refreshing the relevant view repopulates the menus in the meantime
+ - a caveat rather than a bug: because Lunascope keeps one long-lived in-memory EDF/annotation instance for the attached individual, write-based Luna commands see whatever state earlier commands in the same session left behind, so results can differ from a fresh command-line invocation of the same command; refresh or re-attach the individual to reset to a clean state
 
 ---
 

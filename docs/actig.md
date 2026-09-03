@@ -57,9 +57,9 @@ Figures can be copied to the clipboard or saved as `PNG`, `SVG`, or `PDF`.
 The dock also reports the number of days, epoch duration, relative
 amplitude (RA), and daily mean, updating those values whenever the
 display is recalculated.  More metrics can be derived by Luna's
-[`ACTIG`](https://zzz.nyspi.org/luna/ref/actigraphy/#actig) command.
-Also see the [`DAYS`](https://zzz.nyspi.org/luna/ref/actigraphy/#days)
-command and the `dhms` option for [`MASK`](https://zzz.nyspi.org/luna/ref/masks/#mask)
+[`ACTIG`](https://zzz-luna.org/luna/ref/actigraphy/#actig) command.
+Also see the [`DAYS`](https://zzz-luna.org/luna/ref/actigraphy/#days)
+command and the `dhms` option for [`MASK`](https://zzz-luna.org/luna/ref/masks/#mask)
 to facilitate manipulating multi-day recordings.
 
 ---

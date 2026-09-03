@@ -18,10 +18,10 @@ _Either way, please read all the notes below to avoid common mistakes_.
 ## Python install
 
 Lunascope is supported for Python 3.9 to 3.14. It is best installed in
-a Python virtual environment:
+a Python virtual environment, e.g.:
 
 ```
-python3 -m venv myenv
+python3.13 -m venv myenv
 ```
 Then activate it:
 ```
